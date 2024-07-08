@@ -2,11 +2,13 @@ import { Dumbbell, MoveRight } from "lucide-react"
 import TertiaryLink from "../components/LinkBtn/TertiaryLink"
 import SecondaryLink from "../components/LinkBtn/SecondaryLink"
 
+
+
 const Services = () => {
   const serviceData = [
     {
       id: 1,
-      serviceImg: "/src/assets/Services/services-01.jpg",
+      serviceImg: "https://i.postimg.cc/FK9V84Gz/services-01.jpg",
       title: "Musculação",
       desc: "Construa sua força e alcance seu potencial máximo com a musculação.",
       link: "#services",
@@ -27,7 +29,7 @@ const Services = () => {
     },
     {
       id: 4,
-      serviceImg: "/src/assets/Services/services-04.jpg",
+      serviceImg: "https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Aeróbica",
       desc: "Revitalize seu corpo e mente com a energia contagiante da aeróbica.",
       link: "#services",
