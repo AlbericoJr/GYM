@@ -16,8 +16,7 @@ const Hero = () => {
   const swiperData = [
     {
       id: 1,
-      bgImg:
-        "https://ibb.co/Fbqd2Hd",
+      bgImg:"https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       slogan: "Mantenha seu corpo",
       title: "Em forma",
       desc: "Prepare-se para queimar muita gordura com nossos equipamentos de alta qualidade.",
