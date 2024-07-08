@@ -17,7 +17,7 @@ const Hero = () => {
     {
       id: 1,
       bgImg:
-        "../../public/Hero/slide-01.avif",
+        "https://ibb.co/Fbqd2Hd",
       slogan: "Mantenha seu corpo",
       title: "Em forma",
       desc: "Prepare-se para queimar muita gordura com nossos equipamentos de alta qualidade.",
