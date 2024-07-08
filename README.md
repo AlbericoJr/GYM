@@ -27,6 +27,6 @@ Este projeto é um site desenvolvido para a academia GYM, com o objetivo de prom
 
 ## [GYM][def]
 
-[def]: [GYM](https://spider-man-rho-two.vercel.app/)
+[def]: [GYM](https://gym-academia.vercel.app/)
 
 ![print do site GYM](public/GYM-print.png)
