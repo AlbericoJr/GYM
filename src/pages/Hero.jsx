@@ -74,7 +74,7 @@ const Hero = () => {
                 <h1 className="lg:text-8xl md:text-7xl sm:text-5xl text-5xl font-bold text-white mb-4 uppercase">
                   {data.title}
                 </h1>
-                <p className="lg:text-lg md:text-base sm:text-base text-base text-gray-400 font-medium mb-6 text-center">
+                <p className="lg:text-lg md:text-base sm:text-base text-base text-gray-100 font-medium mb-6 text-center">
                   {data.desc}
                 </p>
                 <PrimaryBtn className="lg:w-[15%] md:w-[35%] sm:w-[75%] w-[80%] text-xl h-14 mt-5 font-semibold rounded-full">
