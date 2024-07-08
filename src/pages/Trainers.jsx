@@ -7,19 +7,19 @@ const Trainers = () => {
     {
       id: 1,
       trainerImg: "https://i.postimg.cc/fyXHZvdR/trainers-01.avif",
-      name: "Dr. John Smith",
+      name: "John Smith",
       role: "Treinador de musculação",
     },
     {
       id: 2,
       trainerImg: "https://i.postimg.cc/tRVvh9cG/trainers-02.avif",
-      name: "Mrs. Lilly Doe",
+      name: "Lilly Doe",
       role: "Prof. de ginástica",
     },
     {
       id: 3,
       trainerImg: "https://i.postimg.cc/QxG4mRL9/trainers-03.avif",
-      name: "Dr. John Doe",
+      name: "Will Doe",
       role: "Prof. e preparador físico",
     },
     {
