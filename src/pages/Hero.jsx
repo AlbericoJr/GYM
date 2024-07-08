@@ -16,7 +16,7 @@ const Hero = () => {
   const swiperData = [
     {
       id: 1,
-      bgImg:"https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      bgImg:"https://i.postimg.cc/C5VGCpZw/photo-1434682881908-b43d0467b798-q-80-w-2074-auto-format-fit-crop-ixlib-rb-4-0.jpg",
       slogan: "Mantenha seu corpo",
       title: "Em forma",
       desc: "Prepare-se para queimar muita gordura com nossos equipamentos de alta qualidade.",
@@ -24,7 +24,7 @@ const Hero = () => {
     {
       id: 2,
       bgImg:
-        "https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://i.postimg.cc/05pdkj3j/photo-1521804906057-1df8fdb718b7-q-80-w-2070-auto-format-fit-crop-ixlib-rb-4-0.jpg",
       slogan: "Apenas acredite",
       title: "em você mesmo",
       desc: "Estamos aqui para ajudá-lo a alcançar seus objetivos.",
@@ -32,7 +32,7 @@ const Hero = () => {
     {
       id: 3,
       bgImg:
-        "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://i.postimg.cc/ZKH8NgJh/photo-1541534741688-6078c6bfb5c5-q-80-w-2069-auto-format-fit-crop-ixlib-rb-4-0.jpg",
       slogan: "Pare de desejar e comece a",
       title: "fazer",
       desc: "Obtenha um corpo saudável com os exercícios perfeitos",

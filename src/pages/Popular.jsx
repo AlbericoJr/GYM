@@ -5,7 +5,7 @@ const Popular = () => {
   const exerciseData = [
     {
       id: 1,
-      exerciseImg: "../../public/Exercicios/ex_aquecimento.jpg",
+      exerciseImg: "https://i.postimg.cc/dVJWPrVJ/ex-aquecimento.jpg",
       name: "Aquecimento",
       duration: 15,
       sets: 3,
@@ -13,7 +13,7 @@ const Popular = () => {
     },
     {
       id: 2,
-      exerciseImg: "../../public/Exercicios/ex_ombro.jpg",
+      exerciseImg: "https://i.postimg.cc/YC8dp0vY/ex-ombro.jpg",
       name: "Treino de ombro",
       duration: 20,
       sets: 4,
@@ -21,7 +21,7 @@ const Popular = () => {
     },
     {
       id: 3,
-      exerciseImg: "../../public/Exercicios/ex_yoga.jpg",
+      exerciseImg: "https://i.postimg.cc/hjQsb0p1/ex-yoga.jpg",
       name: "Sessão de Yoga",
       duration: 55,
       sets: 5,
@@ -29,7 +29,7 @@ const Popular = () => {
     },
     {
       id: 4,
-      exerciseImg: "../../public/Exercicios/ex_pernas.jpg",
+      exerciseImg: "https://i.postimg.cc/KYzJ4bTV/ex-pernas.jpg",
       name: "Treino de pernas",
       duration: 18,
       sets: 4,

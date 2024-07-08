@@ -6,25 +6,25 @@ const Trainers = () => {
   const trainerData = [
     {
       id: 1,
-      trainerImg: "../../public/Trainers/trainers-01.avif",
+      trainerImg: "https://i.postimg.cc/fyXHZvdR/trainers-01.avif",
       name: "Dr. John Smith",
       role: "Treinador de musculação",
     },
     {
       id: 2,
-      trainerImg: "../../public/Trainers/trainers-02.avif",
+      trainerImg: "https://i.postimg.cc/tRVvh9cG/trainers-02.avif",
       name: "Mrs. Lilly Doe",
       role: "Prof. de ginástica",
     },
     {
       id: 3,
-      trainerImg: "https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      trainerImg: "https://i.postimg.cc/QxG4mRL9/trainers-03.avif",
       name: "Dr. John Doe",
       role: "Prof. e preparador físico",
     },
     {
       id: 4,
-      trainerImg: "../../public/Trainers/trainers-04.avif",
+      trainerImg: "https://i.postimg.cc/7Y3BWmDB/trainers-04.jpg",
       name: "Ronaldo Reigns",
       role: "Prof. e treinador de luta livre",
     },
