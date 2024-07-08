@@ -24,7 +24,7 @@ const Hero = () => {
     {
       id: 2,
       bgImg:
-        "../../public/Hero/slide-02.avif",
+        "https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       slogan: "Apenas acredite",
       title: "em você mesmo",
       desc: "Estamos aqui para ajudá-lo a alcançar seus objetivos.",
@@ -32,7 +32,7 @@ const Hero = () => {
     {
       id: 3,
       bgImg:
-        "../../public/Hero/slide-03.avif",
+        "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       slogan: "Pare de desejar e comece a",
       title: "fazer",
       desc: "Obtenha um corpo saudável com os exercícios perfeitos",
