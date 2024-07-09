@@ -57,7 +57,6 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          {/* Navbar menu items section */}
           <div className={`flex justify-between items-center md:block ${navbar ? "block" : "hidden"}`}>
             <ul className="list-none lg:flex md:flex sm:block items-center gap-x-5 gap-y-16" >
               {navItems.map((item, index) => (
