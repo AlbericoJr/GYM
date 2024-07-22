@@ -9,12 +9,24 @@ const BMI = () => {
   const [height, setHeight] = useState("")
   const [bmi, setMBI] = useState(null)
   const [category, setCategory] = useState("")
+  const [displayWeight, setDisplayWeight] = useState("")
+  const [displayHeight, setDisplayHeight] = useState("")
 
   
   const calculateBMI = () => {
-    const bmi = (weight / ((height * height) / 10000)).toFixed(2)
+    const weightValue = parseFloat(weight);
+    const heightValue = parseFloat(height) / 100;
+
+    if (isNaN(weightValue) || isNaN(heightValue) || heightValue === 0) {
+      alert("Por favor, insira valores válidos para peso e altura.");
+      return;
+    }
+
+    const bmi = (weightValue / (heightValue * heightValue)).toFixed(2);
     setMBI(bmi)
     setCategory(getBMICategory(bmi))
+    setDisplayWeight(weight)
+    setDisplayHeight(height)
     clearInputs()
   }
 
@@ -25,15 +37,15 @@ const BMI = () => {
   }
 
   const getBMICategory = (bmi) => {
-    if (bmi < 18.5){
-      return "Abaixo do peso";	
-    } else if (bmi >= 18.5 && bmi < 24.9){
+    if (bmi < 18.5) {
+      return "Abaixo do peso";
+    } else if (bmi >= 18.5 && bmi < 25) {
       return "Peso normal";
-    }else if (bmi >= 25 && bmi < 29.9){
+    } else if (bmi >= 25 && bmi < 30) {
       return "Sobrepeso";
-    }else if (bmi >= 30 && bmi < 39.9){
-      return ("Obesidade");
-    }else {
+    } else if (bmi >= 30 && bmi < 40) {
+      return "Obesidade";
+    } else {
       return "Obesidade Grave";
     }
   }
@@ -52,7 +64,8 @@ const BMI = () => {
               <Input
                 id="weight"
                 name="weight"
-                type="text"
+                type="number"
+                step="0.01"
                 placeholder="Digite seu peso"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
@@ -63,7 +76,8 @@ const BMI = () => {
               <Input
                 id="height"
                 name="height"
-                type="text"
+                type="number"
+                step="0.1"
                 placeholder="Digite sua altura"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
@@ -86,6 +100,12 @@ const BMI = () => {
               </p>
               <p className="text-orange-600">
                 Categoria: <span className="font-bold">{category}</span>
+              </p>
+              <p className="text-orange-600">
+                Peso: <span className="font-bold">{displayWeight} kg</span>
+              </p>
+              <p className="text-orange-600">
+                Altura: <span className="font-bold">{displayHeight} cm</span>
               </p>
             </div>
           )}
