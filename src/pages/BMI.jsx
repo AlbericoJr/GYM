@@ -8,10 +8,34 @@ const BMI = () => {
   const [weight, setWeight] = useState("")
   const [height, setHeight] = useState("")
   const [bmi, setMBI] = useState(null)
+  const [category, setCategory] = useState("")
 
+  
   const calculateBMI = () => {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2)
     setMBI(bmi)
+    setCategory(getBMICategory(bmi))
+    clearInputs()
+  }
+
+  // limpa os inputs
+  const clearInputs = () => {
+    setWeight("");
+    setHeight("");
+  }
+
+  const getBMICategory = (bmi) => {
+    if (bmi < 18.5){
+      return "Abaixo do peso";	
+    } else if (bmi >= 18.5 && bmi < 24.9){
+      return "Peso normal";
+    }else if (bmi >= 25 && bmi < 29.9){
+      return "Sobrepeso";
+    }else if (bmi >= 30 && bmi < 39.9){
+      return ("Obesidade");
+    }else {
+      return "Obesidade Grave";
+    }
   }
 
   return (
@@ -59,6 +83,9 @@ const BMI = () => {
             <div className="bg-black/20 rounded-b-md px-6 py-2.5">
               <p className="text-orange-600">
                 Seu IMC:  <span className="font-bold">{bmi}</span>
+              </p>
+              <p className="text-orange-600">
+                Categoria: <span className="font-bold">{category}</span>
               </p>
             </div>
           )}

@@ -5,6 +5,7 @@ import About from "./pages/About"
 import Services from "./pages/Services"
 import PricingPlan from "./pages/PricingPlan"
 import Contact from "./pages/Contact"
+import Footer from "./pages/Footer"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/pricingPlan" element={<PricingPlan/>}/>
           <Route path="/contact" element={<Contact/>}/>
         </Routes>
+        <Footer/>
       </Router>
     </div>
     </>

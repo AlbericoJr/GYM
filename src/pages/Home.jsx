@@ -3,7 +3,6 @@ import Banner from "./Banner"
 import BMI from "./BMI"
 import Card from "./Card"
 import Contact from "./Contact"
-import Footer from "./Footer"
 import Hero from "./Hero"
 import Popular from "./Popular"
 import PricingPlan from "./PricingPlan"
@@ -24,7 +23,6 @@ const Home = () => {
       <Popular/>
       <PricingPlan/>
       <Contact/>
-      <Footer/>
     </div>
   )
 }
