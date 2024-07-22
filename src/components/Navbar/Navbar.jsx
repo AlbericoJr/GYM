@@ -13,19 +13,19 @@ const Navbar = () => {
     },
     {
       name: "Sobre",
-      link: "/sobre",
+      link: "/about",
     },
     {
       name: "Serviços",
-      link: "/serviços",
+      link: "/services",
     },
     {
       name: "Planos",
-      link: "/planos",
+      link: "/pricingPlan",
     },
     {
       name: "Contato",
-      link: "/contato",
+      link: "/contact",
     },
   ];
 
@@ -38,7 +38,7 @@ const Navbar = () => {
           <div>
             <div className="flex items-center justify-between py-1 md:py-1 md:block">
               
-              <Link className="text-3xl text-orange-500 font-semibold tracking-[0.1rem] flex items-end gap-x-1 relative">
+              <Link to={"/"}  className="text-3xl text-orange-500 font-semibold tracking-[0.1rem] flex items-end gap-x-1 relative">
               G <span className="text-xl font-bold text-gray-300">Y</span>M
               <Dumbbell className="w-5 h-4 text-orange-400 -rotate-45 absolute top-0 left-[46%] translate-x-[-50%]"/>
               </Link>
