@@ -58,12 +58,12 @@ const Navbar = () => {
             </div>
           </div>
           <div className={`flex justify-between items-center md:block ${navbar ? "block" : "hidden"}`}>
-            <ul className="list-none lg:flex md:flex sm:block items-center gap-x-5 gap-y-16" >
+            <ul className="list-none lg:flex md:flex sm:block items-center gap-x-5 gap-y-16 sm:flex" >
               {navItems.map((item, index) => (
                 <li key={index}>
                   <Link
                     to={item.link}
-                    className="text-gray-50 text-lg font-medium hover:text-orange-500 ease-out duration-700"
+                    className="text-gray-50 text-lg font-medium md:font-light hover:text-orange-500 ease-out duration-700"
                   >
                     {item.name}
                   </Link>

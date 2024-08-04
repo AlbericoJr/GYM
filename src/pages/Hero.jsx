@@ -41,7 +41,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="w-full h-auto">
+      <div className="w-full h-auto pt-[4.5rem] md:pt-16 sm:pt-10">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}

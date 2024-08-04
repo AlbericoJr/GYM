@@ -15,14 +15,10 @@ const Home = () => {
     <div className="w-full h-auto">
       <Hero/>
       <Card/>
-      <About/>
-      <BMI/>
-      <Services/>
       <Banner/>
+      <BMI/>
       <Trainers/>
       <Popular/>
-      <PricingPlan/>
-      <Contact/>
     </div>
   )
 }

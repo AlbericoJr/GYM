@@ -4,8 +4,8 @@ import PrimaryBtn from "../components/Button/PrimaryBtn"
 const PricingPlan = () => {
   return (
     <>
-      <div className="w-full h-auto flex items-center justify-center flex-col lg:py-16 md:py-14 sm:py-12 py-10 lg:px-24 md:px-16 sm:px-6 px-4 ">
-        <h6 className="text-lg font-medium text-gray-200 flex items-center gap-x-2 mb-6">
+      <div className="w-full h-auto flex items-center justify-center flex-col lg:py-16 md:py-14 sm:py-12 py-20 lg:px-24 md:px-16 sm:px-6 px-4 ">
+        <h6 className="text-lg font-medium text-gray-200 flex items-center gap-x-2 mb-6 md:pt-10">
           <Dumbbell className="w-6 h-6 -rotate-45 text-orange-500" />
           Nossos planos
         </h6>

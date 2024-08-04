@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const Footer = () => {
   return (
     <>
-      <div className="w-full h-auto flex items-center justify-center bg-black/30 flex-col py-16 lg:px-24 md:px-16 sm:px-6 px-4 ">
+      <div className="w-full h-auto flex items-center justify-center bg-black/30 flex-col py-20 lg:px-24 md:px-16 sm:px-6 px-4">
         <div className="w-full h-auto flex items-start lg:justify-between md:justify-between sm:justify-center justify-center gap-5 mb-10 flex-wrap">
           <div className="lg:w-[30%] md:w-[30%] sm:w-full w-full h-auto p-2 flex lg:items-start md:items-start sm:items-center items-center flex-col justify-center">
             <Link className="w-fit h-auto text-3xl text-orange-500 font-semibold tracking-[0.1rem] flex items-end gap-x-1 relative mb-3">
@@ -55,30 +55,11 @@ const Footer = () => {
               </div>
             </div>
             <div className="lg:w-[30%] md:w-[48%] sm:w-[48%] w-full h-auto flex items-center flex-col justify-center">
-              <h2 className="text-lg text-gray-200 font-medium mb-4">
-                Link rápido
-              </h2>
-              <div className="w-full h-auto">
-                <ul className="w-full h-auto space-y-2">
-                  <li className="w-full h-auto text-gray-400 hover:text-orange-500 ease-out duration-300 cursor-pointer text-center">
-                    Home
-                  </li>
-                  <li className="w-full h-auto text-gray-400 hover:text-orange-500 ease-out duration-300 cursor-pointer text-center">
-                    Sobre
-                  </li>
-                  <li className="w-full h-auto text-gray-400 hover:text-orange-500 ease-out duration-300 cursor-pointer text-center">
-                    Planos
-                  </li>
-                  <li className="w-full h-auto text-gray-400 hover:text-orange-500 ease-out duration-300 cursor-pointer text-center">
-                    Contato
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
-        <div className="w-full h-[1.5px] flex items-center lg:bg-gray-900 md:bg-gray-900 sm:bg-transparent bg-transparent relative">
-          <div className="w-full h-auto flex items-center lg:justify-between md:justify-between sm:justify-center justify-center absolute -top-4 left-[50%] translate-x-[-50%] flex-wrap-reverse gap-y-4">
+        <div className="w-full h-[1.5px] flex items-center lg:bg-gray-900 md:bg-gray-900 sm:bg-transparent bg-transparent relative ">
+          <div className="w-full h-auto flex items-center lg:justify-between md:justify-between sm:justify-center justify-center absolute -top-4 left-[50%] translate-x-[-50%] flex-wrap-reverse gap-y-4 ">
             <p className="text-sm text-gray-300 font-normal lg:bg-gray-900 md:bg-gray-900 sm:bg-transparent bg-transparent py-1 px-4 rounded-md">
             © 2024 GYM. Todos os direitos reservados.
             </p>
