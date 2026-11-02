@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { ArrowUpRight, Check, Copy, Dumbbell, Mail, MessageCircle } from "lucide-react"
+import { ArrowUpRight, Copy, Dumbbell, Mail, MessageCircle } from "lucide-react"
 
 const email = import.meta.env.VITE_GYM_CONTACT_EMAIL || ""
 export default function Contact() {
@@ -8,6 +8,7 @@ export default function Contact() {
   const subject = search.get("plano") ? "Interesse no plano "+search.get("plano") : (search.get("assunto") || "")
   const [notice, setNotice] = useState("")
   const [prepared, setPrepared] = useState("")
+  const [preparedSubject, setPreparedSubject] = useState("")
   const [copied, setCopied] = useState(false)
 
   function submit(event) {
@@ -22,6 +23,7 @@ export default function Contact() {
     if (!name || !contact || !topic || !message) { setNotice("Preencha todos os campos."); return }
     const summary = "Nome: "+name+"\nE-mail: "+contact+"\nAssunto: "+topic+"\n\nMensagem:\n"+message
     setPrepared(summary)
+    setPreparedSubject(topic)
     setCopied(false)
     setNotice("Mensagem preparada. Copie o texto ou abra o aplicativo de e-mail, se disponível.")
   }
@@ -46,7 +48,7 @@ export default function Contact() {
         <button type="submit" className="gym-button w-full">Preparar mensagem <ArrowUpRight size={18}/></button>
       </form>
       {notice && <p role="status" aria-live="polite" className="mt-5 text-sm text-orange-300">{notice}</p>}
-      {prepared && <div className="mt-5 space-y-3"><label htmlFor="prepared-message" className="block text-sm font-semibold">Mensagem pronta</label><textarea id="prepared-message" readOnly rows={6} value={prepared} className="w-full rounded-lg border border-white/15 bg-[#101113] p-3 text-sm text-gray-200" /><div className="flex flex-wrap gap-3"><button type="button" onClick={copyMessage} className="gym-button gym-button-outline"><Copy size={16}/>{copied?"Copiado":"Copiar mensagem"}</button>{email && <a className="gym-button" href={"mailto:"+encodeURIComponent(email)+"?subject="+encodeURIComponent(String(new FormData(document.querySelector('form')).get('subject') || 'Contato GYM'))+"&body="+encodeURIComponent(prepared)}><Mail size={16}/> Abrir e-mail</a>}</div></div>}
+      {prepared && <div className="mt-5 space-y-3"><label htmlFor="prepared-message" className="block text-sm font-semibold">Mensagem pronta</label><textarea id="prepared-message" readOnly rows={6} value={prepared} className="w-full rounded-lg border border-white/15 bg-[#101113] p-3 text-sm text-gray-200" /><div className="flex flex-wrap gap-3"><button type="button" onClick={copyMessage} className="gym-button gym-button-outline"><Copy size={16}/>{copied?"Copiado":"Copiar mensagem"}</button>{email && <a className="gym-button" href={"mailto:"+encodeURIComponent(email)+"?subject="+encodeURIComponent(preparedSubject)+"&body="+encodeURIComponent(prepared)}><Mail size={16}/> Abrir e-mail</a>}</div></div>}
     </div>
   </div></section>
 }
