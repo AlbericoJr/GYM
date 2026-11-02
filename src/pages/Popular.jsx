@@ -1,77 +1,18 @@
-import { Dumbbell } from "lucide-react"
+import { ArrowUpRight, Dumbbell } from "lucide-react"
+import { Link } from "react-router-dom"
 
-const Popular = () => {
-
-  const exerciseData = [
-    {
-      id: 1,
-      exerciseImg: "https://i.postimg.cc/dVJWPrVJ/ex-aquecimento.jpg",
-      name: "Aquecimento",
-      duration: 15,
-      sets: 3,
-      calories: 100,
-    },
-    {
-      id: 2,
-      exerciseImg: "https://i.postimg.cc/YC8dp0vY/ex-ombro.jpg",
-      name: "Treino de ombro",
-      duration: 20,
-      sets: 4,
-      calories: 150,
-    },
-    {
-      id: 3,
-      exerciseImg: "https://i.postimg.cc/hjQsb0p1/ex-yoga.jpg",
-      name: "Sessão de Yoga",
-      duration: 55,
-      sets: 5,
-      calories: 250,
-    },
-    {
-      id: 4,
-      exerciseImg: "https://i.postimg.cc/KYzJ4bTV/ex-pernas.jpg",
-      name: "Treino de pernas",
-      duration: 18,
-      sets: 4,
-      calories: 120,
-    },
-  ];
-
-  return (
-    <>
-      <div className="w-full h-auto flex items-center justify-center flex-col lg:py-16 md:py-14 sm:py-12 py-10 lg:px-24 md:px-16 sm:px-6 px-4 ">
-        <h6 className="text-lg font-medium text-gray-200 flex items-center gap-x-2 mb-6">
-          <Dumbbell className="w-6 h-6 -rotate-45 text-orange-500" />
-          Nossos exercícios populares
-        </h6>
-        <div className="w-full h-auto flex items-center justify-center gap-x-5 gap-y-6 lg:flex-nowrap md:flex-wrap sm:flex-wrap flex-wrap">
-          {exerciseData.map((data) => (
-          <div
-          key={data.id} 
-            className="lg:w-[24%] md:w-[48%] sm:w-[48%] w-full h-auto rounded-lg overflow-hidden hover:shadow hover:shadow-orange-600 ease-out duration-700 cursor-pointer">
-            <img
-              src={data.exerciseImg}
-              alt="Exercise img"
-              className="w-full lg:h-[30vh] md:h-[33vh] sm:h-[38vh] h-[40vh] object-cover rounded-lg"
-            />
-            <div className="w-full h-auto py-4 px-3">
-              <h1 className="text-lg text-white font-semibold mb-1">
-                {data.name}
-              </h1>
-              <div className="w-full h-auto flex items-center gap-x-2">
-                <p className="text-sm text-gray-300">{data.duration} min</p>
-                <span className="w-1 h-1 rounded-full bg-gray-600"/>
-                <p className="text-sm text-gray-300">{data.sets} sets</p>
-                <span className="w-1 h-1 rounded-full bg-gray-600"/>
-                <p className="text-sm text-gray-300">{data.calories} calorias</p>
-              </div>
-            </div>
-          </div>
-          ))}
-        </div>
-      </div>
-    </>
-  )
+const workouts=[
+  {name:"Aquecimento ativo", category:"Preparação", image:"https://i.postimg.cc/dVJWPrVJ/ex-aquecimento.jpg",detail:"Ative o corpo e prepare-se para o movimento."},
+  {name:"Treino de ombro", category:"Força", image:"https://i.postimg.cc/YC8dp0vY/ex-ombro.jpg",detail:"Movimentos com foco em estabilidade e controle."},
+  {name:"Yoga", category:"Mobilidade", image:"https://i.postimg.cc/hjQsb0p1/ex-yoga.jpg",detail:"Respiração e mobilidade para equilibrar a rotina."},
+  {name:"Treino de pernas", category:"Resistência", image:"https://i.postimg.cc/KYzJ4bTV/ex-pernas.jpg",detail:"Trabalhe força e consciência dos movimentos."},
+]
+export default function Popular() {
+  return <section className="gym-section" aria-labelledby="workouts-title"><div className="gym-container">
+    <div data-reveal className="mb-10"><p className="gym-eyebrow"><Dumbbell size={16}/> Inspiração para se mover</p><h2 id="workouts-title" className="gym-title mt-4">MOVIMENTO QUE <span className="text-orange-500">TRANSFORMA.</span></h2></div>
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{workouts.map(t=><article data-reveal className="group overflow-hidden rounded-2xl border border-white/10 bg-[#1c1e22]" key={t.name}>
+      <div className="overflow-hidden"><img loading="lazy" src={t.image} alt={"Exemplo de "+t.name} className="gym-image h-60 w-full object-cover" /></div>
+      <div className="p-5"><p className="mb-2 text-xs font-bold uppercase tracking-[.15em] text-orange-400">{t.category}</p><h3 className="text-xl font-bold">{t.name}</h3><p className="mt-3 min-h-14 text-sm leading-relaxed text-gray-400">{t.detail}</p><Link to="/services" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange-300">Ver modalidades <ArrowUpRight size={17}/></Link></div>
+    </article>)}</div>
+  </div></section>
 }
-
-export default Popular
