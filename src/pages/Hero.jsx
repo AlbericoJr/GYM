@@ -1,92 +1,29 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react"
+import { ArrowDownRight, ArrowUpRight, Dumbbell, MoveRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
-// Import Swiper styles
-import "swiper/css"
-import "swiper/css/pagination"
-import "swiper/css/navigation"
-
-import "./styles.css"
-
-// import required modules
-import { Autoplay, Navigation, Pagination } from "swiper/modules"
-import PrimaryBtn from "../components/Button/PrimaryBtn"
-
-const Hero = () => {
-  const swiperData = [
-    {
-      id: 1,
-      bgImg:"https://i.postimg.cc/C5VGCpZw/photo-1434682881908-b43d0467b798-q-80-w-2074-auto-format-fit-crop-ixlib-rb-4-0.jpg",
-      slogan: "Mantenha seu corpo",
-      title: "Em forma",
-      desc: "Prepare-se para queimar muita gordura com nossos equipamentos de alta qualidade.",
-    },
-    {
-      id: 2,
-      bgImg:
-        "https://i.postimg.cc/05pdkj3j/photo-1521804906057-1df8fdb718b7-q-80-w-2070-auto-format-fit-crop-ixlib-rb-4-0.jpg",
-      slogan: "Apenas acredite",
-      title: "em você mesmo",
-      desc: "Estamos aqui para ajudá-lo a alcançar seus objetivos.",
-    },
-    {
-      id: 3,
-      bgImg:
-        "https://i.postimg.cc/ZKH8NgJh/photo-1541534741688-6078c6bfb5c5-q-80-w-2069-auto-format-fit-crop-ixlib-rb-4-0.jpg",
-      slogan: "Pare de desejar e comece a",
-      title: "fazer",
-      desc: "Obtenha um corpo saudável com os exercícios perfeitos",
-    },
-  ]
-
+export default function Hero() {
   return (
-    <>
-      <div className="w-full h-auto pt-[4.5rem] md:pt-16 sm:pt-10">
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          navigation={true}
-          modules={[Autoplay, Navigation, Pagination]}
-          className="mySwiper w-full"
-        >
-          {swiperData.map((data) => (
-            <SwiperSlide
-              key={data.id}
-              className="w-full relative sm:w-[300px]"
-              style={{
-                backgroundImage: `url(${data.bgImg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                height: "100vh",
-              }}
-            >
-              <div className="w-full h-full bg-black/70 absolute top-0 left-0 -z-10"></div>
-              <div className="w-full h-full flex items-center justify-center flex-col z-10 lg:px-24 md:px-16 sm:px-6 px-4">
-                <h5 className="lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-orange-500 font-semibold mb-2 uppercase">
-                  {data.slogan}
-                </h5>
-                <h1 className="lg:text-8xl md:text-7xl sm:text-5xl text-5xl font-bold text-white mb-4 uppercase">
-                  {data.title}
-                </h1>
-                <p className="lg:text-lg md:text-base sm:text-base text-base text-gray-100 font-medium mb-6 text-center">
-                  {data.desc}
-                </p>
-                <PrimaryBtn className="lg:w-[15%] md:w-[35%] sm:w-[75%] w-[80%] text-xl h-14 mt-5 font-semibold rounded-full">
-                  Cadastre-se
-                </PrimaryBtn>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <section className="relative isolate flex min-h-[670px] items-center overflow-hidden bg-[#101113] py-20 lg:min-h-[790px]">
+      <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('/Banner/Banner-01.avif')" }} aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#101113] via-[#101113]/90 to-[#101113]/25" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#101113] via-transparent to-[#101113]/20" aria-hidden="true" />
+      <div className="gym-container relative z-10">
+        <div className="max-w-[760px]" data-reveal>
+          <p className="gym-eyebrow mb-7"><Dumbbell size={17} aria-hidden="true" /> Eleve seu potencial</p>
+          <h1 className="gym-title text-[clamp(3.5rem,9vw,8.5rem)] text-white">SEU LIMITE <br /><span className="text-orange-500">É O COMEÇO.</span></h1>
+          <p className="mt-7 max-w-[570px] text-lg leading-relaxed text-gray-300">Treinos, energia e foco para evoluir todos os dias. Descubra uma experiência fitness feita para quem quer ir além.</p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link to="/pricingPlan" className="gym-button">Explorar planos <MoveRight aria-hidden="true" size={18}/></Link>
+            <Link to="/services" className="gym-button gym-button-outline">Conhecer modalidades <ArrowUpRight aria-hidden="true" size={18}/></Link>
+          </div>
+          <div className="mt-14 flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[.2em] text-gray-400">
+            <span className="h-px w-10 bg-orange-500" /> Movimento. Disciplina. Evolução.
+          </div>
+        </div>
       </div>
-    </>
+      <div className="pointer-events-none absolute bottom-8 right-8 hidden items-center gap-3 text-xs font-bold tracking-[.2em] text-gray-300 lg:flex">
+        SCROLL TO EXPLORE <ArrowDownRight className="text-orange-400" size={22}/>
+      </div>
+    </section>
   )
 }
-
-export default Hero
