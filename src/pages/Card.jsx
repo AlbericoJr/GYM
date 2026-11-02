@@ -1,42 +1,19 @@
-const Card = () => {
-  return (
-    <>
-      <div className="w-full h-auto flex items-center lg:grid-cols-4 md:grid-cols-2 sm:gid-cols-1  justify-center lg:gap-8 md:gap-5 sm:gap-4 gap-5 lg:px-24 md:px-16 sm:px-6 px-6 mt-6 flex-wrap">
+import { Activity, ArrowUpRight, Dumbbell, HeartPulse, Trophy } from "lucide-react"
 
-        <div className="flex items-center justify-center flex-col lg:w-fit md:w-[48%] sm:w-[48%] w-full lg:py-6 md:py-7 sm:py-8 py-9 px-10 bg-black/10 hover:bg-black/40 rounded-md ease-out duration-700 cursor-pointer">
-          <h5 className="text-4xl text-orange-400 font-semibold mb-2 uppercase">
-            1200+
-          </h5>
-          <p className="text-lg text-gray-300 font-medium">Membros</p>
-        </div>
+const values = [
+  { icon: Dumbbell, title: "Treinos para todos", description: "Escolha atividades que combinam com sua rotina e objetivos." },
+  { icon: HeartPulse, title: "Bem-estar em foco", description: "Uma abordagem que valoriza movimento e qualidade de vida." },
+  { icon: Trophy, title: "Evolução contínua", description: "Pequenos avanços constroem resultados consistentes." },
+  { icon: Activity, title: "Seu ritmo importa", description: "Do primeiro treino à próxima conquista, um passo por vez." },
+]
 
-        <div className="flex items-center justify-center flex-col lg:w-fit md:w-[48%] sm:w-[48%] w-full lg:py-6 md:py-7 sm:py-8 py-9 px-10 bg-black/10 hover:bg-black/30 rounded-md ease-out duration-700 cursor-pointer">
-          <h5 className="text-4xl text-orange-400 font-semibold mb-2 uppercase">
-            120+
-          </h5>
-          <p className="text-lg text-gray-300 font-medium">
-            Instrutores Especialistas
-          </p>
-        </div>
-
-        <div className="flex items-center justify-center flex-col lg:w-fit md:w-[48%] sm:w-[48%] w-full lg:py-6 md:py-7 sm:py-8 py-9 px-10 bg-black/10 hover:bg-black/30 rounded-md ease-out duration-700 cursor-pointer">
-          <h5 className="text-4xl text-orange-400 font-semibold mb-2 uppercase">
-            13+
-          </h5>
-          <p className="text-lg text-gray-300 font-medium">
-            Anos de experiência
-          </p>
-        </div>
-
-        <div className="flex items-center justify-center flex-col lg:w-fit md:w-[48%] sm:w-[48%] w-full lg:py-6 md:py-7 sm:py-8 py-9 px-10 bg-black/10 hover:bg-black/30 rounded-md ease-out duration-700 cursor-pointer">
-          <h5 className="text-4xl text-orange-400 font-semibold mb-2 uppercase">
-            368+
-          </h5>
-          <p className="text-lg text-gray-300 font-medium">Academia</p>
-        </div>
-      </div>
-    </>
-  )
+export default function Card() {
+  return <section className="border-y border-white/10 bg-[#191b1f] py-7" aria-label="Diferenciais GYM">
+    <div className="gym-container grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {values.map(({ icon: Icon, title, description }) => <article key={title} className="group flex items-start gap-3 rounded-xl p-4 transition-colors hover:bg-white/5">
+        <span className="rounded-xl bg-orange-500/10 p-3 text-orange-400"><Icon aria-hidden="true" size={24}/></span>
+        <div><h2 className="flex items-center gap-1 font-bold text-white">{title}<ArrowUpRight size={14} className="text-orange-400 opacity-0 transition-opacity group-hover:opacity-100"/></h2><p className="mt-1 text-xs leading-relaxed text-gray-400">{description}</p></div>
+      </article>)}
+    </div>
+  </section>
 }
-
-export default Card
