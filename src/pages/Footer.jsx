@@ -1,4 +1,4 @@
-import { ArrowUpRight, Dumbbell, Github, Instagram, Mail } from "lucide-react"
+import { ArrowUpRight, Dumbbell, Github, Mail } from "lucide-react"
 import { Link } from "react-router-dom"
 export default function Footer() {
   return <footer className="border-t border-white/10 bg-[#0a0b0d] text-gray-200">
