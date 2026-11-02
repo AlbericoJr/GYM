@@ -1,5 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar/Navbar"
+import ScrollManager from "./components/ScrollManager"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Services from "./pages/Services"
@@ -11,12 +12,11 @@ import Footer from "./pages/Footer"
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen w-full bg-[#171717]">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-orange-600 focus:p-3 focus:text-white">
-          Pular para o conteúdo
-        </a>
+      <ScrollManager />
+      <div className="min-h-screen w-full bg-[#101113]">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-orange-600 focus:p-3 focus:text-white">Pular para o conteúdo</a>
         <Navbar />
-        <main id="main-content" className="pt-20">
+        <main id="main-content" className="pt-[72px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -24,7 +24,7 @@ function App() {
             <Route path="/pricingPlan" element={<PricingPlan />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/trainers" element={<Trainers />} />
-            <Route path="*" element={<section className="mx-auto max-w-3xl px-5 py-24 text-center text-white"><h1 className="mb-5 text-4xl font-bold">Página não encontrada</h1><Link to="/" className="text-orange-400 underline">Voltar ao início</Link></section>} />
+            <Route path="*" element={<section className="gym-section gym-container min-h-[60vh] text-center"><p className="gym-eyebrow justify-center">Erro 404</p><h1 className="gym-title mt-5">PÁGINA NÃO ENCONTRADA.</h1><p className="gym-text mt-5">O endereço não existe ou mudou.</p><Link to="/" className="gym-button mt-8">Voltar ao início</Link></section>} />
           </Routes>
         </main>
         <Footer />
