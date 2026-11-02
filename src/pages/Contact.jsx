@@ -1,59 +1,34 @@
 import { Dumbbell } from "lucide-react"
-import Input from "../components/Form/input"
-import TextArea from "../components/Form/TextArea"
-import PrimaryBtn from "../components/Button/PrimaryBtn"
+import { useState } from "react"
 
-
-const Contact = () => {
-  return (
-    <>
-      <div className="w-full h-auto flex items-center justify-center flex-col lg:py-16 md:py-14 sm:py-12 py-20 lg:px-24 md:px-16 sm:px-6 px-4 ">
-        <h6 className="text-lg font-medium text-gray-200 flex items-center gap-x-2 mb-6 md:pt-10">
-          <Dumbbell className="w-6 h-6 -rotate-45 text-orange-500" />
-          Pergunte sobre GYMs
-        </h6>
-        <div className="w-full h-auto flex items-center gap-x-8 lg:gap-y-8 md:gap-y-8 sm:gap-y-4 gap-y-4 flex-col lg:p-7 sm:p-4 p-3">
-          <div className="w-full h-auto flex items-center lg:gap-x-8 md:gap-x-4 sm:gap-x-4 gap-x-3 lg:gap-y-8 md:gap-y-8 sm:gap-y-5 gap-y-4 lg:flex-nowrap md:flex-nowrap sm:flex-wrap flex-wrap">
-            <div className="lg:w-[32%] md:w-[32%] sm:w-[48%] w-full h-auto">
-              <Input
-                type="text"
-                id="fullname"
-                name="fullname"
-                placeholder="Escreva seu nome completo"
-                className="w-full h-12 px-4"
-              />
-            </div>
-            <div className="lg:w-[32%] md:w-[32%] sm:w-[48%] w-full h-auto">
-              <Input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Escreva seu e-mail"
-                className="w-full h-12 px-4"
-              />
-            </div>
-            <div className="lg:w-[32%] md:w-[32%] sm:w-[48%] w-full h-auto">
-              <Input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Escreva o seu assunto"
-                className="w-full h-12 px-4"
-              />
-            </div>
-          </div>
-
-          <TextArea
-            id="message"
-            name="message"
-            placeholder="Escreva sua mensagem"
-            className="w-full px-4"  
-          />
-          <PrimaryBtn className="lg:w-auto md:w-auto sm-[75%] w-full px-8 py-3 uppercase rounded-md">Enviar mensagem</PrimaryBtn>
-        </div>
-      </div>
-    </>
-  )
+export default function Contact() {
+  const [notice, setNotice] = useState("")
+  function submit(event) {
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const name = String(data.get("name") || "").trim()
+    const email = String(data.get("email") || "").trim()
+    const subject = String(data.get("subject") || "").trim()
+    const message = String(data.get("message") || "").trim()
+    if (!name || !email || !subject || !message || message.length > 2000) {
+      setNotice("Preencha todos os campos. A mensagem deve ter até 2.000 caracteres.")
+      return
+    }
+    const body = `Nome: ${name}\nE-mail: ${email}\n\n${message}`
+    const url = `mailto:contato@gym.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    setNotice("Seu aplicativo de e-mail será aberto. Nenhuma mensagem foi enviada automaticamente.")
+    window.location.href = url
+  }
+  return <section className="mx-auto max-w-5xl px-4 py-16 text-gray-100 sm:px-6">
+    <h1 className="mb-4 flex items-center justify-center gap-2 text-2xl font-bold"><Dumbbell className="text-orange-500" aria-hidden="true"/> Entre em contato</h1>
+    <p className="mb-8 text-center text-sm text-gray-400">Demonstração: o formulário abre seu aplicativo de e-mail. O endereço é ilustrativo; não há envio por servidor.</p>
+    <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
+      <div><label htmlFor="contact-name" className="mb-2 block">Nome</label><input required id="contact-name" name="name" maxLength={100} autoComplete="name" className="w-full rounded border border-gray-600 bg-transparent p-3" /></div>
+      <div><label htmlFor="contact-email" className="mb-2 block">E-mail</label><input required id="contact-email" name="email" type="email" maxLength={200} autoComplete="email" className="w-full rounded border border-gray-600 bg-transparent p-3" /></div>
+      <div className="sm:col-span-2"><label htmlFor="contact-subject" className="mb-2 block">Assunto</label><input required id="contact-subject" name="subject" maxLength={120} className="w-full rounded border border-gray-600 bg-transparent p-3" /></div>
+      <div className="sm:col-span-2"><label htmlFor="contact-message" className="mb-2 block">Mensagem</label><textarea required id="contact-message" name="message" maxLength={2000} rows={6} className="w-full rounded border border-gray-600 bg-transparent p-3" /></div>
+      <button type="submit" className="rounded bg-orange-600 px-6 py-3 font-semibold hover:bg-orange-700 sm:col-span-2">Preparar e-mail</button>
+      <p className="text-sm text-orange-300 sm:col-span-2" role="status" aria-live="polite">{notice}</p>
+    </form>
+  </section>
 }
-
-export default Contact
