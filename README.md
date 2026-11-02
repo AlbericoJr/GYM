@@ -56,7 +56,11 @@ A organização do código inclui componentes e páginas para:
 
 ## 🚀 Executando localmente
 
-**Pré-requisitos:** Node.js compatível com Vite 5, npm e Git.
+**Pré-requisitos:** Node.js **26 LTS** (versão de referência: **26.13.0**), npm e Git. A versão utilizada está definida no arquivo `.nvmrc`.
+
+Com **nvm**, execute `nvm install` e `nvm use` na pasta do projeto; confira com `node --version`.
+
+O `package.json` declara `engines.node: 26.x`, e o GitHub Actions utiliza a versão de `.nvmrc`. Na Vercel, essa configuração seleciona a linha 26.x em novos deployments; valide o runtime após o deploy.
 
 1. Clone o repositório:
 
