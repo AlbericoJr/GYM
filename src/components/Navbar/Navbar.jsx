@@ -1,81 +1,31 @@
 import { Dumbbell, Menu, X } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import PrimaryBtn from "../Button/PrimaryBtn"
+import { NavLink } from "react-router-dom"
 
-const Navbar = () => {
+const links = [
+  { name: "Início", to: "/" },
+  { name: "Sobre", to: "/about" },
+  { name: "Serviços", to: "/services" },
+  { name: "Planos", to: "/pricingPlan" },
+  { name: "Contato", to: "/contact" },
+]
 
-  const [navbar, setNavbar] = useState(false)
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Sobre",
-      link: "/about",
-    },
-    {
-      name: "Serviços",
-      link: "/services",
-    },
-    {
-      name: "Planos",
-      link: "/pricingPlan",
-    },
-    {
-      name: "Contato",
-      link: "/contact",
-    },
-  ];
-
-  // bg-[#1d1d1d]
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
   return (
-    <> 
-      <nav className="w-full h-auto bg-transparent/90 shadow-none lg:px-24 md:px-16 sm:px-6 px-4 py-3 z-50 fixed top-0 left-0 right-0">
-        <div className="justify-between mx-auto lg:w-full md:items-center md:flex">
-          
-          <div>
-            <div className="flex items-center justify-between py-1 md:py-1 md:block">
-              
-              <Link to={"/"}  className="text-3xl text-orange-500 font-semibold tracking-[0.1rem] flex items-end gap-x-1 relative">
-              G <span className="text-xl font-bold text-gray-300">Y</span>M
-              <Dumbbell className="w-5 h-4 text-orange-400 -rotate-45 absolute top-0 left-[46%] translate-x-[-50%]"/>
-              </Link>
-              <div className="md:hidden">
-                <button 
-                  className="p-2 text-gray-50 rounded-md outline-none border border-transparent focus:border-orange-300 focus:border" onClick={() => 
-                  setNavbar(!navbar)}
-                >
-                  {navbar ? (
-                    <X className="text-gray-400 cursor-pointer" size={24}/>
-                  ) : (
-                    <Menu className="text-gray-400 cursor-pointer" size={24}/>
-                  ) 
-                }
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className={`flex justify-between items-center md:block ${navbar ? "block" : "hidden"}`}>
-            <ul className="list-none lg:flex md:flex sm:block items-center gap-x-5 gap-y-16 sm:flex" >
-              {navItems.map((item, index) => (
-                <li key={index}>
-                  <Link
-                    to={item.link}
-                    className="text-gray-50 text-lg font-medium md:font-light hover:text-orange-500 ease-out duration-700"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-              <PrimaryBtn>Torne-se um membro</PrimaryBtn>
-            </ul>
-          </div>
+    <nav aria-label="Navegação principal" className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#171717]/95 px-4 py-3 shadow-lg backdrop-blur-md sm:px-6 md:px-16 lg:px-24">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <NavLink to="/" onClick={() => setOpen(false)} aria-label="GYM - página inicial" className="flex items-center gap-1 text-2xl font-bold tracking-wider text-orange-500">
+          <Dumbbell aria-hidden="true" size={22} /> GYM
+        </NavLink>
+        <button type="button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-controls="gym-mobile-menu" aria-expanded={open} onClick={() => setOpen(!open)} className="rounded p-2 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400 md:hidden">
+          {open ? <X aria-hidden="true"/> : <Menu aria-hidden="true"/>}
+        </button>
+        <div id="gym-mobile-menu" className={`${open ? "flex" : "hidden"} absolute left-0 right-0 top-full flex-col gap-4 border-b border-white/10 bg-[#171717] px-6 py-6 md:static md:flex md:flex-row md:items-center md:border-0 md:bg-transparent md:p-0`}>
+          {links.map(item => <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)} end={item.to === "/"} className={({isActive}) => `rounded text-base font-medium transition-colors hover:text-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400 ${isActive ? "text-orange-400" : "text-gray-100"}`}>{item.name}</NavLink>)}
+          <NavLink to="/pricingPlan" onClick={() => setOpen(false)} className="rounded bg-orange-600 px-4 py-2 text-center font-semibold text-white hover:bg-orange-700">Conhecer planos</NavLink>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   )
 }
-
-export default Navbar
