@@ -17,9 +17,7 @@ Projeto de interface desenvolvido com **React 18**, **Vite 5** e **Tailwind CSS 
 
 ## 📸 Prévia do projeto
 
-![Captura da versão anterior do GYM — a nova interface precisa de captura atualizada](./public/GYM-print.png)
-
-> Esta captura pertence à versão anterior e será substituída após a validação visual do redesign.
+![Captura da versão anterior do GYM — a nova interface precisa de captura atualizada](./public/print.png)
 
 ## 📖 Sobre
 
@@ -38,8 +36,6 @@ A organização do código inclui componentes e páginas para:
 - **Calculadora de IMC:** estimativa para adultos, com validação e classificação informativa.
 - **Contato:** formulário acessível que prepara e permite copiar uma mensagem; envio por e-mail somente com destinatário público configurado.
 - **Navegação e UX:** páginas React Router, menu mobile, CTA funcionais, página 404, FAQ expansível e animações com suporte a movimento reduzido.
-
-> As seções acima foram identificadas na estrutura do código. A disponibilidade de integrações externas, envio de formulários ou operações reais deve ser verificada antes do uso em produção.
 
 ## 🛠️ Tecnologias
 
