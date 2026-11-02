@@ -1,27 +1,15 @@
-import PrimaryBtn from '../components/Button/PrimaryBtn'
+import { ArrowUpRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
-const Banner = () => {
-  return (
-    <>
-      <div 
-        className='w-full h-[58vh] flex items-center justify-center flex-col relative lg:py-16 md:py-14 sm:py-12 py-10 lg:px-24 md:px-16 sm:px-6 px-4 z-10'
-        style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="w-full h-full bg-black/70 absolute top-0 left-0 -z-10 "></div>
-        <h1 className='lg:text-6xl md:text-5xl sm:text-4xl text-4xl font-bold text-gray-200 uppercase text-center'>
-          Sem <span className='text-orange-500'>Dor</span>, se{""} <span className='text-orange-500'>Ganho</span>
-        </h1>
-        <p className='text-lg text-gray-300 font-medium mb-8 text-center'>
-          Inicie sua jornada de condicionamento físico com soluções premium
-        </p>
-        <PrimaryBtn className="px-10 py-3 uppercase rounded-full">Torne-se um membro</PrimaryBtn>
-      </div>
-    </>
-  )
+export default function Banner() {
+  return <section className="relative isolate overflow-hidden py-24 md:py-32">
+    <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{backgroundImage:"url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop')"}} aria-hidden="true"/>
+    <div className="absolute inset-0 -z-10 bg-[#101113]/80" aria-hidden="true"/>
+    <div className="gym-container text-center" data-reveal>
+      <span className="gym-eyebrow justify-center">Uma nova experiência fitness</span>
+      <h2 className="gym-title mx-auto mt-5 max-w-[900px] text-white">NÃO ESPERE PELA <span className="text-orange-500">PRÓXIMA SEGUNDA.</span></h2>
+      <p className="mx-auto mt-5 max-w-xl text-gray-300">Transforme intenção em movimento. Conheça as modalidades e escolha por onde começar.</p>
+      <Link to="/pricingPlan" className="gym-button mt-8">Quero conhecer os planos <ArrowUpRight size={18} aria-hidden="true" /></Link>
+    </div>
+  </section>
 }
-
-export default Banner

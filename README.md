@@ -6,7 +6,7 @@
 
 **Uma experiência digital moderna para apresentar serviços, profissionais e planos de uma academia.**
 
-Projeto de interface desenvolvido com **React 18**, **Vite 5** e **Tailwind CSS 3**, com foco em navegação, apresentação visual e adaptação a diferentes telas.
+Projeto de interface desenvolvido com **React 18**, **Vite 5** e **Tailwind CSS 3**, reformulado com linguagem visual dark fitness, efeitos sutis de entrada e experiência responsiva.
 
 [![Ver demonstração](https://img.shields.io/badge/Ver_demonstra%C3%A7%C3%A3o-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://gym-academia.vercel.app/)
 [![Código-fonte](https://img.shields.io/badge/C%C3%B3digo_fonte-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AlbericoJr/GYM)
@@ -17,7 +17,9 @@ Projeto de interface desenvolvido com **React 18**, **Vite 5** e **Tailwind CSS 
 
 ## 📸 Prévia do projeto
 
-![Captura de tela do website GYM](./public/GYM-print.png)
+![Captura da versão anterior do GYM — a nova interface precisa de captura atualizada](./public/GYM-print.png)
+
+> Esta captura pertence à versão anterior e será substituída após a validação visual do redesign.
 
 ## 📖 Sobre
 
@@ -31,11 +33,11 @@ A organização do código inclui componentes e páginas para:
 
 - **Apresentação inicial:** identidade da academia e conteúdo de destaque.
 - **Sobre e serviços:** informações institucionais e apresentação dos serviços.
-- **Planos:** seção para apresentar opções e valores.
+- **Planos:** comparação de opções ilustrativas com alternância mensal/anual e navegação para contato.
 - **Profissionais:** área dedicada aos treinadores.
-- **IMC:** seção de índice de massa corporal; consulte a demonstração para conferir seu comportamento.
-- **Contato:** informações e elementos de contato.
-- **Navegação visual:** componentes reutilizáveis, ícones e elementos deslizantes.
+- **Calculadora de IMC:** estimativa para adultos, com validação e classificação informativa.
+- **Contato:** formulário acessível que prepara e permite copiar uma mensagem; envio por e-mail somente com destinatário público configurado.
+- **Navegação e UX:** páginas React Router, menu mobile, CTA funcionais, página 404, FAQ expansível e animações com suporte a movimento reduzido.
 
 > As seções acima foram identificadas na estrutura do código. A disponibilidade de integrações externas, envio de formulários ou operações reais deve ser verificada antes do uso em produção.
 
@@ -48,9 +50,9 @@ A organização do código inclui componentes e páginas para:
 | **JavaScript / JSX** | Lógica e composição dos componentes |
 | **Tailwind CSS 3** | Estilização com classes utilitárias |
 | **React Router DOM 6** | Recursos de roteamento |
-| **Swiper 11** | Componentes de apresentação deslizante |
 | **Lucide React** | Ícones |
 | **ESLint** | Verificação estática do código |
+| **Node.js (node:test)** | Testes unitários da calculadora |
 
 ## 🚀 Executando localmente
 
@@ -85,18 +87,34 @@ npm run dev
 | `npm run build` | Gera arquivos de produção |
 | `npm run preview` | Pré-visualiza o build |
 | `npm run lint` | Executa a análise com ESLint |
+| `npm test` | Executa testes unitários de IMC |
+
+## ✉️ Configuração do formulário de contato
+
+Este projeto **não possui backend** e não deve afirmar que envia mensagens automaticamente.
+
+- Sem configuração, o formulário valida os campos, prepara e permite copiar a mensagem.
+- Para habilitar a abertura do aplicativo de e-mail, copie `.env.example` para `.env.local` e configure `VITE_GYM_CONTACT_EMAIL` com um endereço público e válido.
+- Variáveis `VITE_` são públicas no frontend; **nunca coloque senhas, tokens ou chaves secretas** nesses campos.
+- O formulário não salva informações do usuário nem processa pagamentos ou matrículas.
+
+Os valores dos planos e os perfis dos treinadores são **ilustrativos**, pois este é um projeto de portfólio.
 
 ## 📁 Estrutura geral
 
 ```text
 GYM/
+├── .github/          # Workflow de CI e Dependabot
 ├── public/           # Imagens e arquivos estáticos
 ├── src/
-│   ├── components/   # Componentes compartilhados
+│   ├── components/   # Componentes compartilhados e navegação
 │   ├── pages/        # Seções e páginas do site
+│   ├── utils/        # Cálculos de IMC
 │   ├── App.jsx       # Composição principal
 │   ├── main.jsx      # Entrada da aplicação
 │   └── index.css     # Estilos
+├── tests/            # Testes com node:test
+├── vercel.json       # Reescrita de rotas para SPA
 ├── package.json
 ├── tailwind.config.js
 └── vite.config.js
@@ -111,11 +129,15 @@ GYM/
 
 ## 🔎 Evoluções possíveis
 
-- [ ] Revisar acessibilidade e navegação por teclado.
-- [ ] Adicionar testes para componentes e interações principais.
+- [x] Melhorar acessibilidade básica e navegação por teclado.
+- [x] Adicionar efeitos de revelação respeitando `prefers-reduced-motion`.
+- [x] Adicionar testes unitários da calculadora de IMC.
+- [ ] Adicionar testes de integração de formulários e navegação.
 - [ ] Verificar desempenho e otimização de imagens.
 - [ ] Validar formulários e definir integrações reais de contato, caso necessárias.
-- [ ] Configurar CI para build e lint em pull requests.
+- [x] Configurar CI para lint, testes e build em pull requests.
+- [ ] Revisar alertas de dependências e atualizar ferramentas com testes.
+- [ ] Atualizar a captura de tela para a nova interface.
 
 ## 👨‍💻 Autor
 
