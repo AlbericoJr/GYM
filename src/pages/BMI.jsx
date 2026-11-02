@@ -1,118 +1,50 @@
-import { Dumbbell } from "lucide-react"
-import Label from "../components/Label/Label"
-import Input from "../components/Form/input"
-import SecondaryBtn from "../components/Button/SecondaryBtn"
 import { useState } from "react"
+import { Dumbbell } from "lucide-react"
 
-const BMI = () => {
+function categoryFor(bmi) {
+  if (bmi < 18.5) return "Abaixo do peso"
+  if (bmi < 25) return "Faixa considerada adequada"
+  if (bmi < 30) return "Sobrepeso"
+  if (bmi < 35) return "Obesidade grau I"
+  if (bmi < 40) return "Obesidade grau II"
+  return "Obesidade grau III"
+}
+
+export default function BMI() {
   const [weight, setWeight] = useState("")
   const [height, setHeight] = useState("")
-  const [bmi, setMBI] = useState(null)
-  const [category, setCategory] = useState("")
-  const [displayWeight, setDisplayWeight] = useState("")
-  const [displayHeight, setDisplayHeight] = useState("")
+  const [result, setResult] = useState(null)
+  const [error, setError] = useState("")
 
-  
-  const calculateBMI = () => {
-    const weightValue = parseFloat(weight);
-    const heightValue = parseFloat(height) / 100;
-
-    if (isNaN(weightValue) || isNaN(heightValue) || heightValue === 0) {
-      alert("Por favor, insira valores válidos para peso e altura.");
-      return;
+  function calculate(event) {
+    event.preventDefault()
+    const kg = Number(weight)
+    const cm = Number(height)
+    if (!Number.isFinite(kg) || !Number.isFinite(cm) || kg < 1 || kg > 500 || cm < 50 || cm > 250) {
+      setResult(null)
+      setError("Informe peso entre 1 e 500 kg e altura entre 50 e 250 cm.")
+      return
     }
-
-    const bmi = (weightValue / (heightValue * heightValue)).toFixed(2);
-    setMBI(bmi)
-    setCategory(getBMICategory(bmi))
-    setDisplayWeight(weight)
-    setDisplayHeight(height)
-    clearInputs()
-  }
-
-  // limpa os inputs
-  const clearInputs = () => {
-    setWeight("");
-    setHeight("");
-  }
-
-  const getBMICategory = (bmi) => {
-    if (bmi < 18.5) {
-      return "Abaixo do peso";
-    } else if (bmi >= 18.5 && bmi < 25) {
-      return "Peso normal";
-    } else if (bmi >= 25 && bmi < 30) {
-      return "Sobrepeso";
-    } else if (bmi >= 30 && bmi < 40) {
-      return "Obesidade";
-    } else {
-      return "Obesidade Grave";
-    }
+    const bmi = kg / ((cm / 100) ** 2)
+    setResult({ bmi: bmi.toFixed(2), category: categoryFor(bmi) })
+    setError("")
   }
 
   return (
-    <>
-      <div className="w-full h-auto flex items-center lg:py-16 md:py-14 sm:py-12 py-10 lg:px-24 md:px-16 sm:px-6 px-4">
-        <div className="w-full h-auto flex items-center justify-center flex-col">
-          <h6 className="lg:text-lg md:text-lg sm:text-base text-base font-medium text-gray-200 flex items-center gap-x-2 bg-black/20 roumded-t-md py-2 px-4">
-            <Dumbbell className="w-6 h-6 -rotate-45 text-orange-500" />
-            Calcule seu IMC
-          </h6>
-          <div className="w-full h-auto flex items-end justify-center bg-black/20 rounded-md lg:gap-5 md:gap-5 sm:gap-3 gap-2 py-10 lg:px-0 md:px-0 sm:px-2 px-4 flex-wrap">
-            <div className="lg:w-[25%] md:w-[40%] sm:w-[50%] w-full h-auto p-2">
-              <Label htmlfor="weight">Peso (kg)</Label>
-              <Input
-                id="weight"
-                name="weight"
-                type="number"
-                step="0.01"
-                placeholder="Digite seu peso"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-              />
-            </div>
-            <div className="lg:w-[25%] md:w-[40%] sm:w-[50%] w-full h-auto p-2">
-              <Label htmlfor="weight">Altura (cm)</Label>
-              <Input
-                id="height"
-                name="height"
-                type="number"
-                step="0.1"
-                placeholder="Digite sua altura"
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
-              />
-            </div>
-            <div className="lg:w-[20%] md:w-[35%] sm:w-[50%] w-full h-auto p-2">
-              <SecondaryBtn
-                type="submit"
-                className="w-full h-11 justify-center"
-                onClick={calculateBMI}
-              >
-                Calcular o IMC
-              </SecondaryBtn>
-            </div>
-          </div>
-          {bmi !== null && (
-            <div className="bg-black/20 rounded-b-md px-6 py-2.5">
-              <p className="text-orange-600">
-                Seu IMC:  <span className="font-bold">{bmi}</span>
-              </p>
-              <p className="text-orange-600">
-                Categoria: <span className="font-bold">{category}</span>
-              </p>
-              <p className="text-orange-600">
-                Peso: <span className="font-bold">{displayWeight} kg</span>
-              </p>
-              <p className="text-orange-600">
-                Altura: <span className="font-bold">{displayHeight} cm</span>
-              </p>
-            </div>
-          )}
+    <section aria-labelledby="bmi-title" className="px-4 py-12 sm:px-6 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-4xl rounded-xl bg-black/25 p-6 text-gray-100 sm:p-10">
+        <h2 id="bmi-title" className="mb-6 flex items-center justify-center gap-2 text-xl font-semibold"><Dumbbell aria-hidden="true" className="text-orange-500" /> Calcule seu IMC</h2>
+        <form onSubmit={calculate} noValidate className="grid gap-4 sm:grid-cols-3 sm:items-end">
+          <div><label htmlFor="gym-weight" className="mb-2 block">Peso (kg)</label><input id="gym-weight" type="number" inputMode="decimal" min="1" max="500" step="0.1" required value={weight} onChange={e=>setWeight(e.target.value)} className="w-full rounded border border-gray-600 bg-[#171717] p-3 text-white focus:border-orange-400" /></div>
+          <div><label htmlFor="gym-height" className="mb-2 block">Altura (cm)</label><input id="gym-height" type="number" inputMode="decimal" min="50" max="250" step="0.1" required value={height} onChange={e=>setHeight(e.target.value)} className="w-full rounded border border-gray-600 bg-[#171717] p-3 text-white focus:border-orange-400" /></div>
+          <button type="submit" className="rounded bg-orange-600 px-4 py-3 font-semibold text-white hover:bg-orange-700">Calcular IMC</button>
+        </form>
+        <div role="status" aria-live="polite" className="mt-5">
+          {error && <p className="text-red-300">{error}</p>}
+          {result && <p className="text-orange-300">IMC: <strong>{result.bmi}</strong> — {result.category}</p>}
         </div>
+        <p className="mt-4 text-xs leading-relaxed text-gray-400">Estimativa educativa para adultos. O IMC não avalia composição corporal individual e não substitui orientação de um profissional de saúde.</p>
       </div>
-    </>
+    </section>
   )
 }
-
-export default BMI
