@@ -22,7 +22,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="pointer-events-none absolute bottom-8 right-8 hidden items-center gap-3 text-xs font-bold tracking-[.2em] text-gray-300 lg:flex">
-        SCROLL TO EXPLORE <ArrowDownRight className="text-orange-400" size={22}/>
+        ROLE PARA EXPLORAR <ArrowDownRight className="text-orange-400" size={22}/>
       </div>
     </section>
   )
